@@ -6,38 +6,38 @@
    </head>
    <body>
         <style>
-             #viguLogo {
+             #logoCanvas {
                 width: 150px;
                 height: 60px;
                 cursor: pointer;
              }
              @media only screen and(max-width:641px) {
-                #viguLogo {
+                #logoCanvas {
                     width: 125px;
                     height: 50px;
                 }
             }
         </style>
         <!--tiiny host via lxmi gmil-->
-        <canvas id="viguLogo" width="300" height="120"></canvas>
+        <canvas id="logoCanvas" width="300" height="120"></canvas>
         <script src="https://www.vigu.net/s/rive.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
             const r = new rive.Rive({
             src: 'https://cdn.shopify.com/s/files/1/0587/5263/0922/files/vigu-logo.riv?v=1675536224',
-            canvas: document.getElementById('viguLogo'),
+            canvas: document.getElementById('logoCanvas'),
             autoplay: true,
             stateMachines: ["Idle"],
             onLoad: () => {
-                viguLogo.addEventListener("mouseover", function () {
+                logoCanvas.addEventListener("mouseover", function () {
                     r.play("Animate");
                 });
 
-                viguLogo.addEventListener("mouseout", function () {
+                logoCanvas.addEventListener("mouseout", function () {
                     r.play("Idle");
                 });
 
-                viguLogo.addEventListener("click", function () {
+                logoCanvas.addEventListener("click", function () {
                     window.open("https://www.vigu.net", "_parent");
                 });
             }
