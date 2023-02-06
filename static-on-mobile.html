@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Welcome to MyCity</title>
+    <style>
+      /* video background */
+      #background-video {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+
+      }
+
+      /* page content */
+      .content {
+        width: 90%;
+    height: 95%;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 1em auto 0 auto;
+      }
+      h1, h4, .mobileText {
+        color: white;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .mobileText {
+        display: none;
+      }
+
+      h1 {
+            font-size: 6rem;
+    margin-top: 2vh;
+    padding-top: 10vh;
+      }
+
+      h4 { font-size: 1.8rem; }
+
+      #controlBtn {
+        position: absolute;
+        border-radius: 100%;
+        border: 0;
+        font-size: 2rem;
+        min-height: 4rem;
+        min-width: 4rem;
+        cursor: pointer;
+        left: 48%;
+        top: 45%;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      #controlBtn:hover {
+          background-color: rgba(255, 255, 255, 1);  
+      }
+
+     @media only screen and (max-width: 768px) {
+          
+          body {
+            background: url("https://gecko-lobster-heab.squarespace.com/s/static-bg-gek2.jpg") no-repeat;
+            background-size: cover;
+          }
+
+          #background-video { display: none; }
+          
+
+            .mobileText {
+              display: block;
+            }
+
+            #controlBtn {
+             display: none; 
+            }
+
+      }
+    </style>
+  </head>
+  <body>
+    <video id="background-video" autoplay muted playsinline>
+      <source src="https://gecko-lobster-heab.squarespace.com/s/My_City_Loop_sm.mp4" type="video/mp4">
+    </video>
+
+<div class="content">
+<h1>MyCity Demo</h1>
+<h4>Background video with play/pause button</h4>
+<p class="mobileText">Loaded static BG image and hid Play/Pause on mobile</p>
+<button id="controlBtn">| |</button>
+
+<script>
+const video = document.getElementById("background-video");
+const controlBtn = document.getElementById("controlBtn");
+
+controlBtn.addEventListener("click", function(e) {
+  e.preventDefault();
+  if (video.paused) {
+    video.play();
+    controlBtn.textContent = "| |";
+  } else {
+    video.pause();
+    controlBtn.textContent = ">";
+  }
+});
+
+// play video on first user interaction
+video.addEventListener("click", function() {
+  if (video.paused) {
+    video.play();
+    controlBtn.textContent = "| |";
+  }
+});
+
+</script>
+
+</div>
+  </body>
+</html>
